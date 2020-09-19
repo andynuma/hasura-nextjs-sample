@@ -31,9 +31,17 @@ const ArticlePage: NextPage = () => {
 
   return (
     <div className={styles.contentContainer}>
-      <div>{JSON.stringify(user)}</div>
-      <div>{subject}</div>
-      <div>{content}</div>
+      <div className={styles.subject}>{subject}</div>
+      <div className={styles.userContainer}>
+        <div>
+          <img src="/profile.jpg" alt="user-icon" className={styles.userIcon} />
+        </div>
+        <div className={styles.userText}>
+          <div className={styles.userId}>{user.displayId}</div>
+          <div className={styles.userName}>{user.displayName}</div>
+        </div>
+      </div>
+      <div className={styles.content}>{content}</div>
     </div>
   )
 }
