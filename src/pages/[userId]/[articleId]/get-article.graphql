@@ -1,5 +1,5 @@
 query getArticle($id: uuid!) {
-  article_by_pk(id: "029bb0cd-5324-464f-b420-0421b1ba99cc") {
+  article_by_pk(id: $id) {
     user {
       displayId
       displayName
