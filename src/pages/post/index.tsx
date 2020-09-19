@@ -1,14 +1,29 @@
 import { NextPage } from 'next'
+import React from 'react'
 
 import styles from './index.module.css'
 
-const Post: NextPage = () => {
+import autosize from 'autosize'
+
+const PostPage: NextPage = () => {
+  const ref = React.useRef(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      autosize(ref.current)
+    }
+  }, [])
+
   return (
     <div className={styles.editContent}>
       <input type="text" placeholder="タイトル" className={styles.subject} />
-      <textarea className={styles.editor} placeholder="本文"></textarea>
+      <textarea
+        className={styles.editor}
+        placeholder="本文"
+        ref={ref}
+      ></textarea>
     </div>
   )
 }
 
-export default Post
+export default PostPage
